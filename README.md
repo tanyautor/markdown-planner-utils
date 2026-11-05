@@ -143,13 +143,40 @@ Checkboxes under an untagged bullet are independent and do not cascade.
 
 ## Install
 
-Package the extension with [vsce](https://github.com/microsoft/vscode-vsce):
+Each release on the [Releases page](https://github.com/tanyautor/markdown-planner-utils/releases) has a ready-made `.vsix` file attached.
+
+### One command (GitHub CLI)
+
+With the [GitHub CLI](https://cli.github.com/) installed and logged in (`gh auth login`), and VS Code's `code` command on your PATH:
+
+**PowerShell (Windows)**
+
+```powershell
+gh release download -R tanyautor/markdown-planner-utils -p *.vsix -D $env:TEMP --clobber; code --install-extension (Get-ChildItem $env:TEMP\markdown-planner-utils-*.vsix | Sort-Object LastWriteTime | Select-Object -Last 1).FullName
+```
+
+**bash / zsh (macOS, Linux, Git Bash)**
+
+```sh
+gh release download -R tanyautor/markdown-planner-utils -p '*.vsix' -D /tmp --clobber && code --install-extension "$(ls -t /tmp/markdown-planner-utils-*.vsix | head -n 1)"
+```
+
+This downloads the latest release and installs it. Run it again to update.
+
+### Manually
+
+1. Download the `.vsix` file from the latest release on the [Releases page](https://github.com/tanyautor/markdown-planner-utils/releases).
+2. In VS Code, open the Command Palette (Ctrl+Shift+P) and run **Extensions: Install from VSIX…**, then pick the file. Alternatively, run `code --install-extension markdown-planner-utils-<version>.vsix` in a terminal.
+3. Run **Developer: Reload Window**.
+
+### From source
+
+Package the extension with [vsce](https://github.com/microsoft/vscode-vsce) (needs [Node.js](https://nodejs.org/)), then install the generated file as above:
 
 ```sh
 npx @vscode/vsce package
+code --install-extension markdown-planner-utils-<version>.vsix
 ```
-
-Then, in VS Code, run **Extensions: Install from VSIX…** and pick the generated `.vsix` file. Finally run **Developer: Reload Window**.
 
 ## License
 
