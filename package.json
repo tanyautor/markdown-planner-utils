@@ -1,0 +1,31 @@
+{
+  "name": "markdown-planner-utils",
+  "displayName": "Markdown Planner Utils",
+  "description": "Markdown preview helpers for planning: clickable checkboxes, status sync, cascading rating scales and +/- counters.",
+  "version": "0.1.2",
+  "publisher": "local",
+  "license": "MIT",
+  "engines": { "vscode": "^1.80.0" },
+  "main": "./extension.js",
+  "activationEvents": ["onUri", "onLanguage:markdown"],
+  "contributes": {
+    "markdown.markdownItPlugins": true,
+    "markdown.previewStyles": ["./preview.css"],
+    "markdown.previewScripts": ["./preview.js"],
+    "configuration": {
+      "title": "Markdown Planner Utils",
+      "properties": {
+        "plannerUtils.counterAllowNegative": {
+          "type": "boolean",
+          "default": false,
+          "description": "Allow decrementing counters below 0."
+        },
+        "plannerUtils.autoSave": {
+          "type": "boolean",
+          "default": true,
+          "description": "Save the file after a counter changes."
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,16 @@
+/* ---- Checkboxes ---- */
+a.mpu-box, a.mpu-box:hover { text-decoration: none; cursor: pointer; }
+a.mpu-box input { cursor: pointer; pointer-events: auto; }
+
+/* ---- Counters ---- */
+.mdc-counter { display: inline-flex; align-items: center; gap: 0.35em; vertical-align: middle; }
+.mdc-value { min-width: 1.5em; text-align: center; font-weight: 600; font-variant-numeric: tabular-nums; }
+a.mdc-btn {
+  display: inline-flex; align-items: center; justify-content: center;
+  width: 1.4em; height: 1.4em; border-radius: 4px; line-height: 1;
+  border: 1px solid var(--vscode-button-border, var(--vscode-contrastBorder, rgba(128,128,128,.5)));
+  background: var(--vscode-button-secondaryBackground, rgba(128,128,128,.15));
+  color: var(--vscode-button-secondaryForeground, inherit) !important;
+  text-decoration: none !important; user-select: none; cursor: pointer;
+}
+a.mdc-btn:hover { background: var(--vscode-button-secondaryHoverBackground, rgba(128,128,128,.3)); }
